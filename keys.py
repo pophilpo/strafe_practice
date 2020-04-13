@@ -18,8 +18,10 @@ class KeyListener:
 
         self.stop_key = stop_key
         self.events = list()
-        self.left_strafe = 0
-        self.right_strafe = 0
+
+        # My keyboard specific A/D keys.
+        self.left_strafe = 30
+        self.right_strafe = 32
 
     def listen(self, event):
 
@@ -56,15 +58,3 @@ class KeyListener:
         events = [event.__repr__() for event in self.events]
 
         return "\n".join(events)
-
-
-def main():
-
-    logger = KeyListener()
-    logger.map_strafe_scan_codes()
-    print(logger.left_strafe)
-    print(logger.right_strafe)
-
-
-if __name__ == "__main__":
-    main()
