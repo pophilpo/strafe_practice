@@ -3,7 +3,7 @@ import time
 import keyboard
 
 
-class Event:
+class KeyEvent:
     def __init__(self, key_code, timestamp):
         self.key_code = key_code
         self.timestamp = timestamp
@@ -27,12 +27,12 @@ class KeyListener:
 
         for code in keyboard._pressed_events:
             timestamp = time.time()
-            event = Event(code, timestamp)
+            event = KeyEvent(code, timestamp)
             self.events.append(event)
 
     def start(self):
+
         keyboard.hook(self.listen)
-        keyboard.wait(self.stop_key)
 
     def map_strafe_scan_codes(self):
         print("\rPress your right strafe key")
